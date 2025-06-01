@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="bn">
+<!DOCTYPE html><html lang="bn">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,95 +9,125 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #121212;
       color: #e6e6e6;
-    }
+    }h1 {
+  text-align: center;
+  margin: 1rem;
+  color: #fff;
+}
 
-    h1 {
-      text-align: center;
-      margin: 1rem;
-      color: #fff;
-    }
+.faq-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #343541;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
 
-    .faq-container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #343541;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-    }
+.faq-item {
+  border-bottom: 1px solid #4b5563;
+}
 
-    .faq-item {
-      border-bottom: 1px solid #4b5563;
-    }
+.faq-question {
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #202123;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
 
-    .faq-question {
-      padding: 15px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      background-color: #202123;
-      border-radius: 6px;
-      transition: background 0.3s ease;
-    }
+.faq-question:hover {
+  background-color: #2a2b32;
+}
 
-    .faq-question:hover {
-      background-color: #2a2b32;
-    }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  font-size: 0.95rem;
+  padding: 0 15px;
+  color: #cfcfcf;
+}
 
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      font-size: 0.95rem;
-      padding: 0 15px;
-      color: #cfcfcf;
-    }
+.faq-answer.open {
+  padding: 10px 15px 15px;
+  max-height: 300px;
+}
 
-    .faq-answer.open {
-      padding: 10px 15px 15px;
-      max-height: 300px;
-    }
+@media (max-width: 600px) {
+  .faq-container {
+    border-radius: 0;
+    padding: 10px;
+  }
+}
 
-    @media (max-width: 600px) {
-      .faq-container {
-        border-radius: 0;
-        padding: 10px;
-      }
-    }
   </style>
 </head>
 <body>
   <h1>ChessAi ❓FAQ</h1>
-  <div class="faq-container" role="main" aria-label="Chess Frequently Asked Questions">
 
-    <div class="faq-item">
-      <div class="faq-question">Italian Opening কীভাবে দেখব?</div>
-      <div class="faq-answer">Italian Opening দেখতে হলে Chat এ লিখুন, italian opening ।</div>
-    </div>
+  <div class="faq-container" role="main" aria-label="Chess Frequently Asked Questions"><div class="faq-item">
+  <div class="faq-question">Italian Opening কীভাবে দেখব?</div>
+  <div class="faq-answer">Italian Opening দেখতে হলে Chat এ লিখুন, "Italian Opening"।</div>
+</div>
 
-    <div class="faq-item">
-      <div class="faq-question">Queen's Gambit declined কীভাবে দেখব?</div>
-      <div class="faq-answer">Queen's Gambit Declined দেখতে হলে  Chat এ "Queen's Gambit" লিখুন।</div>
-    </div>
+<div class="faq-item">
+  <div class="faq-question">Queen's Gambit Declined কীভাবে দেখব?</div>
+  <div class="faq-answer">Queen's Gambit Declined দেখতে হলে Chat এ "Queen's Gambit" লিখুন।</div>
+</div>
 
-    <div class="faq-item">
-      <div class="faq-question">Queen's Gambit accepted  কীভাবে দেখব</div>
-      <div class="faq-answer">Queen's Gambit accepted  দেখতে হলে  Chat এ "qg accepted " লিখুন।</div>
-    </div>
+<div class="faq-item">
+  <div class="faq-question">Queen's Gambit Accepted কীভাবে দেখব?</div>
+  <div class="faq-answer">Queen's Gambit Accepted দেখতে হলে Chat এ "qg accepted" লিখুন।</div>
+</div>
 
-    <div class="faq-item">
-      <div class="faq-question">Sicilian defense কীভাবে দেখব?</div>
-      <div class="faq-answer">Sicilan defense দেখতে হলে  Chat এ "Sicilian Defense" লিখুন।</div>
-    </div>
+<div class="faq-item">
+  <div class="faq-question">Sicilian Defense কীভাবে দেখব?</div>
+  <div class="faq-answer">Sicilian Defense দেখতে হলে Chat এ "Sicilian Defense" লিখুন।</div>
+</div>
 
-    <div class="faq-item">
-      <div class="faq-question">Ruy lopez কীভাবে দেখব?</div>
-      <div class="faq-answer">Ruy lopez দেখতে হলে  Chat এ "Ruy lopez" লিখুন।</div>
-    </div>
+<div class="faq-item">
+  <div class="faq-question">Ruy Lopez কীভাবে দেখব?</div>
+  <div class="faq-answer">Ruy Lopez দেখতে হলে Chat এ "Ruy Lopez" লিখুন।</div>
+</div>
 
-  </div>
+<!-- Additional 45+ popular openings -->
+<script>
+  const openings = [
+    "Caro-Kann Defense", "French Defense", "Pirc Defense", "King's Indian Defense", "Grunfeld Defense",
+    "Nimzo-Indian Defense", "Slav Defense", "Semi-Slav Defense", "Benoni Defense", "Benko Gambit",
+    "Modern Defense", "Philidor Defense", "Petrov's Defense", "Alekhine's Defense", "English Opening",
+    "King's Gambit", "Evans Gambit", "Scotch Game", "Vienna Game", "London System", "Torre Attack",
+    "Catalan Opening", "Reti Opening", "Bird's Opening", "Sokolsky Opening", "Colle System",
+    "Stonewall Attack", "Blackmar-Diemer Gambit", "Albin Countergambit", "Budapest Gambit",
+    "Old Indian Defense", "King's Indian Attack", "Nimzowitsch Defense", "Latvian Gambit",
+    "Chigorin Defense", "Dutch Defense", "Queen's Indian Defense", "Larsen's Opening",
+    "Zukertort Opening", "Van't Kruijs Opening", "Dunst Opening", "Barnes Opening", "Grob's Attack",
+    "King's Fianchetto Opening"
+  ];
 
-  <script>
+  const container = document.querySelector('.faq-container');
+  openings.forEach(name => {
+    const item = document.createElement('div');
+    item.className = 'faq-item';
+
+    const question = document.createElement('div');
+    question.className = 'faq-question';
+    question.innerText = `${name} কীভাবে দেখব?`;
+
+    const answer = document.createElement('div');
+    answer.className = 'faq-answer';
+    answer.innerText = `${name} দেখতে হলে Chat এ "${name}" লিখুন।`;
+
+    item.appendChild(question);
+    item.appendChild(answer);
+    container.appendChild(item);
+  });
+</script>
+
+  </div>  <script>
     const questions = document.querySelectorAll(".faq-question");
     questions.forEach(q => {
       q.addEventListener("click", () => {
@@ -106,6 +135,5 @@
         answer.classList.toggle("open");
       });
     });
-  </script>
-</body>
+  </script></body>
 </html>

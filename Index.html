@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ChessAi</title>
+
   <style>
     /* === Global Reset & Base === */
     * {
@@ -104,6 +105,15 @@
       color: #e6e6e6;
       border-bottom-left-radius: 2px;
       font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* === Full-width Lichess iframe wrapper === */
+    .message.full-board {
+      max-width: 100%;
+      width: 100%;
+      padding: 0;
+      background: transparent;
+      border-radius: 0;
     }
 
     /* Typing Animation Container */
@@ -317,7 +327,7 @@
           answer: "চেকমেট হলো এমন অবস্থা যেখানে রাজা আক্রমণের মধ্যে থাকে এবং কোন জায়গায় সরে যেতে পারে না, ফলে গেম শেষ।"
         },
         {
-          questions: ["কে বানিয়েছে"],
+          questions: ["কে বানিয়েছে", "creator", "builder", "owner"],
           answer: "ভালো প্রশ্ন! আমাকে বানিয়েছেন সামিউল হক রাফসান। তিনি একজন তরুণ  প্রোগ্রামার ।"
         },
         {
@@ -342,7 +352,7 @@
         },
         {
           questions: ["রানী কিভাবে চলে", "queen move", "রানী চাল"],
-          answer: "রানী সরল এবং ডায়াগোনালি উভয় দিকেই চলে, যতদূর খুশি যতক্ষণ बाधা না থাকে।"
+          answer: "রানী সরল এবং ডায়াগোনালি উভয় দিকেই চলে, যতদূর খুশি যতক্ষণ বাধা না থাকে।"
         },
         {
           questions: ["গেম কিভাবে শেষ হয়", "how does game end", "গেম শেষ"],
@@ -394,6 +404,51 @@
         "Queen's gambit": ["d2d4", "d7d5", "c2c4", "e7e6", "b1c3", "g8f6"],
         "qg accepted": ["d2d4", "d7d5", "c2c4", "d5c4", "g1f3", "g8f6", "e2e3", "e7e6", "f1c4"],
         "Sicilian Defense": ["e2e4", "c7c5"],
+        "Caro-Kann Defense": ["e2e4", "c7c6", "d2d4", "d7d5"],
+        "French Defense": ["e2e4", "e7e6", "d2d4", "d7d5"],
+        "Pirc Defense": ["e2e4", "d7d6", "d2d4", "g8f6"],
+        "King's Indian Defense": ["d2d4", "g8f6", "c2c4", "g7g6", "b1c3", "f8g7"],
+        "Grunfeld Defense": ["d2d4", "g8f6", "c2c4", "g7g6", "b1c3", "d7d5"],
+        "Nimzo-Indian Defense": ["d2d4", "g8f6", "c2c4", "e7e6", "b1c3", "f8b4"],
+        "Slav Defense": ["d2d4", "d7d5", "c2c4", "c7c6"],
+        "Queen's Gambit Declined": ["d2d4", "d7d5", "c2c4", "e7e6"],
+        "Semi-Slav Defense": ["d2d4", "d7d5", "c2c4", "c7c6", "b1c3", "e7e6"],
+        "Benoni Defense": ["d2d4", "g8f6", "c2c4", "c7c5", "d4d5", "e7e6"],
+        "Benko Gambit": ["d2d4", "g8f6", "c2c4", "c7c5", "d4d5", "b7b5"],
+        "Modern Defense": ["e2e4", "g7g6"],
+        "Philidor Defense": ["e2e4", "e7e5", "g1f3", "d7d6"],
+        "Petrov's Defense": ["e2e4", "e7e5", "g1f3", "g8f6"],
+        "Alekhine's Defense": ["e2e4", "g8f6"],
+        "English Opening": ["c2c4"],
+        "King's Gambit": ["e2e4", "e7e5", "f2f4"],
+        "Evans Gambit": ["e2e4", "e7e5", "g1f3", "b8c6", "f1c4", "f8c5", "b2b4"],
+        "Scotch Game": ["e2e4", "e7e5", "g1f3", "b8c6", "d2d4"],
+        "Vienna Game": ["e2e4", "e7e5", "b1c3"],
+        "London System": ["d2d4", "d7d5", "g1f3", "g8f6", "c1f4"],
+        "Torre Attack": ["d2d4", "d7d5", "g1f3", "g8f6", "b1d2", "f8g4"],
+        "Catalan Opening": ["d2d4", "g8f6", "c2c4", "e7e6", "g2g3"],
+        "Reti Opening": ["g1f3", "d7d5", "c2c4"],
+        "Bird's Opening": ["f2f4"],
+        "Sokolsky Opening": ["b2b4"],
+        "Colle System": ["d2d4", "d7d5", "c2c3"],
+        "Stonewall Attack": ["d2d4", "d7d5", "c2c3", "e7e6", "f2f4"],
+        "Blackmar-Diemer Gambit": ["d2d4", "d7d5", "e2e4"],
+        "Albin Countergambit": ["d2d4", "d7d5", "c2c4", "e7e5"],
+        "Budapest Gambit": ["d2d4", "g8f6", "c2c4", "e7e5"],
+        "Old Indian Defense": ["d2d4", "g8f6", "c2c4", "d7d6"],
+        "King's Indian Attack": ["e2e4", "c7c5", "d2d3", "g1f3", "g2g3", "f1g2", "e1g1"],
+        "Nimzowitsch Defense": ["e2e4", "d7d6", "d2d4", "b8c6"],
+        "Latvian Gambit": ["e2e4", "e7e5", "g1f3", "f7f5"],
+        "Chigorin Defense": ["d2d4", "d7d5", "c2c4", "g8f6", "b1c3", "f6e4"],
+        "Dutch Defense": ["d2d4", "f7f5"],
+        "Queen's Indian Defense": ["d2d4", "g8f6", "c2c4", "e7e6", "g1f3", "b7b6"],
+        "Larsen's Opening": ["b2b3"],
+        "Zukertort Opening": ["b1c3"],
+        "Van't Kruijs Opening": ["e2e3"],
+        "Dunst Opening": ["c2c3"],
+        "Barnes Opening": ["f2f3"],
+        "Grob's Attack": ["g2g4"],
+        "King's Fianchetto Opening": ["g2g3"],
         "Ruy Lopez": ["e2e4", "e7e5", "g1f3", "b8c6", "f1b5"]
       };
 
@@ -471,7 +526,7 @@
         const text = userInput.value.trim();
         if (!text) return;
 
-        // Disable while processing
+        // Disable inputs while processing
         userInput.disabled = true;
         sendBtn.disabled = true;
 
@@ -485,7 +540,32 @@
 
         await sleep(200);
 
-        // 4.1 Check predefined QA
+        // === 4.1) যদি ইউজার "lichess" লিখে ===
+        const normalized = text.toLowerCase().replace(/\s+/g, "");
+        if (normalized.includes("lichess")) {
+          // বড় আকারের iframe দেখানোর জন্য wrapper-এ নতুন ক্লাস "full-board" যোগ করা হলো
+          const wrapper = document.createElement("div");
+          wrapper.classList.add("message", "bot", "full-board");
+
+          const iframe = document.createElement("iframe");
+          iframe.src = "https://lichess.org/embed/analysis";
+          iframe.width = "100%";
+          iframe.height = "1000vh";
+          iframe.style.border = "none";
+          iframe.allowFullscreen = true;
+          iframe.loading = "lazy";
+
+          wrapper.appendChild(iframe);
+          chatArea.appendChild(wrapper);
+          chatArea.scrollTop = chatArea.scrollHeight;
+
+          userInput.disabled = false;
+          sendBtn.disabled = false;
+          userInput.focus();
+          return;
+        }
+
+        // === 4.2) Check predefined QA ===
         const qaAnswer = getAnswer(text);
         if (qaAnswer) {
           appendMessage(qaAnswer, "bot");
@@ -495,7 +575,7 @@
           return;
         }
 
-        // 4.2 Check openings (English names)
+        // === 4.3) Check openings (English names) ===
         const matchedOpening = Object.keys(openings).find(name =>
           text.toLowerCase().includes(name.toLowerCase())
         );
@@ -512,7 +592,7 @@
           return;
         }
 
-        // 4.3 Fallback response
+        // === 4.4) Fallback response ===
         appendMessage(
           "দুঃখিত, আমি এই প্রশ্ন বা ওপেনিং চিনতে পারিনি। আপনি দাবা সম্পর্কিত প্রশ্ন করুন বা ইংরেজিতে ওপেনিং নাম দিন যেমন 'Italian Opening'।",
           "bot"
@@ -543,7 +623,7 @@
 
         // ২. Type out the text portion (without link)
         const initialText =
-          "স্বাগতম! দাবা সম্পর্কিত কোনো প্রশ্ন লিখুন, অথবা ইংরেজিতে ওপেনিং নাম দিন যেমন 'Italian Opening', 'Ruy Lopez', 'Scandinavian Defense'। প্রয়োজনীয় তথ্য পেতে ";
+          "স্বাগতম! দাবা সম্পর্কিত কোনো প্রশ্ন লিখুন, অথবা ইংরেজিতে ওপেনিং নাম দিন যেমন 'Italian Opening', 'Ruy Lopez', 'Scandinavian Defense', আপনাকে একেকটা Opening এর আসল নাম accurate  লিখতে হবে। প্রয়োজনীয় তথ্য পেতে ";
         await typeText(firstContainer, initialText);
 
         // ৩. Append the clickable FAQ link
@@ -562,7 +642,7 @@
       const splash = document.getElementById("splash");
       setTimeout(() => {
         splash.classList.add("hidden");
-      }, 4000); // 1 সেকেন্ড পর হালকা fade-out হবে
+      }, 4000); // 4 সেকেন্ড পর হালকা fade-out হবে
     });
   </script>
 </body>
