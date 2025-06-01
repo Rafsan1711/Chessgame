@@ -19,7 +19,7 @@
       display: flex;
       flex-direction: column;
       height: 100vh;
-      overflow: hidden;
+      /* overflow:hidden সরিয়ে দেওয়া হয়েছে যাতে input sticky কাজ করে */
     }
 
     h1 {
@@ -27,6 +27,7 @@
       text-align: center;
       font-weight: 700;
       color: #fff;
+      flex: 0 0 auto; /* হেডার ফ্লেক্স আইটেম হিসেবে রেখে যতটা জায়গা দেবে, ঠিক তাই থাকবে */
     }
 
     /* === Chat Container === */
@@ -39,7 +40,7 @@
       border-radius: 8px;
       background: #343541;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-      overflow: hidden;
+      /* overflow:hidden সরিয়ে দেওয়া হয়েছে */
     }
 
     /* === Chat Area === */
@@ -89,11 +90,9 @@
     }
 
     @keyframes blink-caret {
-      0%,
-      100% {
+      0%, 100% {
         border-color: transparent;
       }
-
       50% {
         border-color: #4caf50;
       }
@@ -113,6 +112,10 @@
       background: #202123;
       border-top: 1px solid #4b5563;
       gap: 10px;
+      position: sticky;
+      bottom: 0;      /* স্ক্রিনের নিচে আটকে থাকবে */
+      flex: 0 0 auto; /* অন্য অংশকে ফ্লেক্স করে উপরে তুলে নেবে */
+      z-index: 10;    /* চ্যাট বুদ্বুদের উপরে থাকবে যাতে লুকিয়ে না যায় */
     }
 
     #user-input {
@@ -183,7 +186,7 @@
       height: 36px;
       pointer-events: none;
       user-select: none;
-      /* transition: transform 0.3s ease; */ 
+      /* transition: transform 0.3s ease; */
     }
 
     /* === Responsive Adjustments === */
@@ -286,7 +289,7 @@
         },
         {
           questions: ["ক্যাসলিং কি", "castling কি", "castling"],
-          answer: "ক্যাসলিং হলো এক ধরনের বিশেষ চাল যেখানে রাজা ও রুক একসাথে সরানো হয় নির্দিষ্ট নিয়ম মেনে। এটি রাজাকে নিরাপদে সরানোর একটি কৌশল।"
+          answer: "ক্যাসলিং হলো এক ধরনের বিশেষ চাল যেখানে রাজা ও রুক একসঙ্গে সরানো হয় নির্দিষ্ট নিয়ম মেনে। এটি রাজাকে নিরাপদে সরানোর একটি কৌশল।"
         },
         {
           questions: ["পিয়ন কিভাবে চলে", "pawn move", "পিয়ন চাল"],
@@ -322,7 +325,7 @@
         },
         {
           questions: ["দাবার টার্ন কিভাবে কাজ করে", "chess turn", "টার্ন"],
-          answer: "খেলোয়াড়েরা পালাক্রমে একটি চাল দেয়। সাদা প্রথমে চাল দেয়, তারপর কালো।"
+          answer: "খেলোয়াড়েরা পালাক্রমে একটি চাল দেয়। সাদা প্রথমে চাল দেয়, তারপর কালো।"
         },
         {
           questions: ["চেকমেট কী", "what is checkmate", "চেক"],
